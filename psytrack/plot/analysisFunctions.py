@@ -130,7 +130,9 @@ def plot_performance(dat, xval_pL=None, sigma=50, figsize=(5, 1.5)):
                      smooth_correct - 1.96 * perf_errorbars,
                      smooth_correct + 1.96 * perf_errorbars,
                      facecolor=COLORS['emp_perf'], alpha=0.3, zorder=3)
-
+    error_range_1 = smooth_correct - 1.96 * perf_errorbars
+    error_range_2 = smooth_correct + 1.96 * perf_errorbars
+                     
     # Calculate the predicted accuracy
     if xval_pL is not None:
         pred_correct = np.abs(answerR - xval_pL)
@@ -150,7 +152,7 @@ def plot_performance(dat, xval_pL=None, sigma=50, figsize=(5, 1.5)):
     plt.xlim(0, N); plt.ylim(0.3, 1.0)
     plt.xlabel('Trial #'); plt.ylabel('Performance')
 
-    return fig
+    return fig, error_range_1, error_range_2
 
 
 def plot_bias(dat, xval_pL=None, sigma=50, figsize=(5, 1.5)):
