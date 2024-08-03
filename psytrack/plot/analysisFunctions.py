@@ -153,7 +153,7 @@ def plot_performance(dat, xval_pL=None, sigma=50, figsize=(5, 1.5)):
     plt.xlim(0, N); plt.ylim(0.3, 1.0)
     plt.xlabel('Trial #'); plt.ylabel('Performance')
 
-    return fig, error1, error2
+    return fig, error1, error2, smooth_pred_correct
 
 
 def plot_bias(dat, xval_pL=None, sigma=50, figsize=(5, 1.5)):
